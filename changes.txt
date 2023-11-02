@@ -1,0 +1,19 @@
+//1:  installing the react router Dom 
+npm i react-router-dom 
+
+
+// to read the following 
+Hi Mohammed.
+
+It's totally fine to share your Firebase config in your repository, it doesn't contain any sensitive info. It only identifies your app to Firebase, no body would be able to access your Firebase as they would need your google account.
+That being said I personally would move just the config object to a separate file and export it from there and add that to .gitignore
+The reason would be that if anyone else wants to clone/fork and use the code then they would have to add their own config. Even if you yourself want to create another project based off of this one then it makes it easier for you to duplicate it and just add your config for the new app.
+
+But yeah there isn't really anything to worry about in terms of Firebase, after all it's all client side code so would be available to anyone looking through their dev tools.
+
+For your Google Geocode API key though, it's a bit different. Someone could potentially use your key and if you have not restricted it then they could use it and ring up a bill you would be liable for.
+Again though it will be available to anyone inspecting the code in the dev tools.
+The best thing you can do here is store it in an environment variable that you .gitignore and so don't push to Github but also restrict your token to your authorized domains only.
+So go to your cloud console where you added the API to your project, then credentials > Application restrictions and API restrictions and restrict the key so it can only be used from your deployed domain. That way it's useless to anyone else.
+
+Hope that answers it for you.
