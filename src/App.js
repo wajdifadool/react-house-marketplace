@@ -4,6 +4,7 @@ import ForgetPassword from './pages/ForgetPassword';
 import Offers from './pages/Offers';
 import Profile from './pages/Profile';
 import SignIn from './pages/SignIn';
+import Category from './pages/Category';
 import PrivateRoute from './components/PrivateRoute';
 import SignUp from './pages/SignUp';
 import Navbar from './components/Navbar';
@@ -18,6 +19,9 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Explore />}></Route>
+          {/* could be rent or sell */}
+          {/* categoryName is  NOT saved keyword  */}
+          <Route path="/category/:categoryName" element={<Category />} />
           <Route path="/offers" element={<Offers />}></Route>
 
           {/* nest The route */}
