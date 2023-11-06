@@ -17,3 +17,8 @@ The best thing you can do here is store it in an environment variable that you .
 So go to your cloud console where you added the API to your project, then credentials > Application restrictions and API restrictions and restrict the key so it can only be used from your deployed domain. That way it's useless to anyone else.
 
 Hope that answers it for you.
+
+
+88-
+adding react toastify 
+npm install --save react-toastify

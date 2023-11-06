@@ -6,7 +6,7 @@ import firebaseConfig from './config';
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-const firebaseConfig = firebaseConfig;
+// const firebaseConfig = firebaseConfig;
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

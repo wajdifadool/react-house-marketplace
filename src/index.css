@@ -220,7 +220,7 @@ button {
 
 .signInBar,
 .signUpBar {
-  margin-top: 3rem;
+  /* margin-top: 3rem; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -818,4 +818,8 @@ button {
   margin-left: 1rem;
   font-size: 0.8rem;
   opacity: 0.75;
+}
+
+.mb-100 {
+  margin-bottom: 100px;
 }

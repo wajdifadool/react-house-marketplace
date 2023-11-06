@@ -13,8 +13,8 @@ function Navbar() {
 
   // update style for selected  navBar item
   const pathMatchRoute = (route) => {
-    console.log(route);
     return route === location.pathname;
+    // @todo - return the class name instated if boolean
   };
   return (
     <footer className="navbar">
