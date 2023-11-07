@@ -563,7 +563,7 @@ button {
 
 .linkCopied {
   position: fixed;
-  top: 9%;
+  top: 11%;
   right: 5%;
   z-index: 2;
   background-color: #ffffff;

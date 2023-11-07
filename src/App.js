@@ -4,6 +4,7 @@ import ForgetPassword from './pages/ForgetPassword';
 import Offers from './pages/Offers';
 import Profile from './pages/Profile';
 import SignIn from './pages/SignIn';
+import Listing from './pages/Listing';
 import Category from './pages/Category';
 import PrivateRoute from './components/PrivateRoute';
 import SignUp from './pages/SignUp';
@@ -11,6 +12,8 @@ import Navbar from './components/Navbar';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import CreateListing from './components/CreateListing';
+import Contact from './pages/Contact';
 
 // Nav Bar goes here
 function App() {
@@ -34,6 +37,13 @@ function App() {
           <Route path="/sign-in" element={<SignIn />}></Route>
           <Route path="/sign-up" element={<SignUp />}></Route>
           <Route path="/forget-password" element={<ForgetPassword />}></Route>
+          <Route path="/create-listing" element={<CreateListing />} />
+          <Route
+            path="/category/:categoryName/:listingId"
+            element={<Listing />}
+          />
+          {/* Contact LandLord baseed on uid  */}
+          <Route path="/contact/:landLordId" element={<Contact />}></Route>
         </Routes>
         {/* nav bar */}
         <Navbar />

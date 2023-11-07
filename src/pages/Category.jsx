@@ -14,6 +14,7 @@ import {
 import { db } from '../firebase.config';
 import { toast } from 'react-toastify';
 import Spinner from '../components/Spinner';
+import ListingItem from '../components/ListingItem';
 
 function Category() {
   // component level state
@@ -56,7 +57,7 @@ function Category() {
       } catch (error) {}
     };
     fetchListing();
-  }, []);
+  }, [params.categoryName]);
   //   return <div>{JSON.stringify(listing)}</div>;
   return (
     <div className="category">
@@ -79,7 +80,9 @@ function Category() {
           <main>
             <ul className="categoryListings">
               {listing.map((item) => (
-                <h3>{item.data.name}</h3>
+                // <ListingItem listing={item} id={}/>
+                // <h3 key={listing.id}>{item.data.name}</h3>
+                <ListingItem key={item.id} listing={item.data} id={item.id} />
               ))}
             </ul>
           </main>

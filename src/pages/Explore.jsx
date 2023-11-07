@@ -14,37 +14,40 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import rentCategoryImage from '../assets/jpg/rentCategoryImage.jpg';
 import sellCategoryImage from '../assets/jpg/sellCategoryImage.jpg';
+import Slider from '../components/Slider';
 
 function Explore() {
   return (
     <div className="explore">
       <header>
         <p className="pageHeader">Explore</p>
-        <main>
-          {/* slider goes here */}
-          <p className="exploreCategoryHeading">Categories</p>
-          <div className="exploreCategories">
-            {/* Rent card */}
-            <Link to="/category/rent">
-              <img
-                src={rentCategoryImage}
-                alt="Rent "
-                className="exploreCategoryImg"
-              />
-              <p className="exploreCategoryName">Places for Rent</p>
-            </Link>
-            {/* sale card */}
-            <Link to="/category/sale">
-              <img
-                src={sellCategoryImage}
-                alt="Sale"
-                className="exploreCategoryImg"
-              />
-              <p className="exploreCategoryName">Places for Sale</p>
-            </Link>
-          </div>
-        </main>
       </header>
+
+      <main>
+        {/* slider goes here */}
+        <Slider />
+        <p className="exploreCategoryHeading">Categories</p>
+        <div className="exploreCategories">
+          {/* Rent card */}
+          <Link to="/category/rent">
+            <img
+              src={rentCategoryImage}
+              alt="Rent "
+              className="exploreCategoryImg"
+            />
+            <p className="exploreCategoryName">Places for Rent</p>
+          </Link>
+          {/* sale card */}
+          <Link to="/category/sale">
+            <img
+              src={sellCategoryImage}
+              alt="Sale"
+              className="exploreCategoryImg"
+            />
+            <p className="exploreCategoryName">Places for Sale</p>
+          </Link>
+        </div>
+      </main>
     </div>
   );
 }

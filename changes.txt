@@ -22,3 +22,7 @@ Hope that answers it for you.
 88-
 adding react toastify 
 npm install --save react-toastify
+
+
+installing leaflet 
+npm i leaflet react-leaflet

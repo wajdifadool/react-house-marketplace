@@ -5,6 +5,9 @@ import { useNavigate, Link } from 'react-router-dom';
 import { updateDoc, doc } from 'firebase/firestore';
 import { db } from '../firebase.config';
 import { toast } from 'react-toastify';
+
+import arrowRightIcon from '../assets/svg/keyboardArrowRightIcon.svg';
+import homeIcon from '../assets/svg/homeIcon.svg';
 function Profile() {
   const auth = getAuth(); //
   // this will get Invoked once  the page Load
@@ -132,6 +135,14 @@ function Profile() {
               />
             </form>
           </div>
+
+          {/* Create the Add Listing Here  */}
+          {/* //TODO: move to offer Page */}
+          <Link to="/create-listing" className="createListing">
+            <img src={homeIcon} alt="home" />
+            <p>Sell or rent Home</p>
+            <img src={arrowRightIcon} alt="arrowRightIcon" />
+          </Link>
         </main>
       </div>
     </>
