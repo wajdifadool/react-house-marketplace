@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as DeleteIcon } from '../assets/svg/deleteIcon.svg';
+// add the Edit Functionality
+import { ReactComponent as EditIcon } from '../assets/svg/editIcon.svg';
 import bedIcon from '../assets/svg/bedIcon.svg';
 import bathtubIcon from '../assets/svg/bathtubIcon.svg';
-function ListingItem({ listing, id, onDelete }) {
+function ListingItem({ listing, id, onDelete, onEdit }) {
   return (
     <li className="categoryListing">
       <Link
@@ -50,6 +52,13 @@ function ListingItem({ listing, id, onDelete }) {
           onClick={() => onDelete(listing.id, listing.name)}
           className="removeIcon"
           fill="rgba(230 , 70,60)"></DeleteIcon>
+      )}
+
+      {onEdit && (
+        <EditIcon
+          onClick={() => onEdit(listing.id)}
+          className="editIcon"
+          fill="rgba(230 , 70,60)"></EditIcon>
       )}
     </li>
   );

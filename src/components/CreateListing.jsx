@@ -64,7 +64,7 @@ function CreateListing() {
       onAuthStateChanged(auth, (user) => {
         if (user) {
           // update the UserRef field in the formData as user id fetched Form user Credintals
-          setFormData({ ...formData, useRef: user.uid });
+          setFormData({ ...formData, userRef: user.uid });
         } else {
           navigate('/sign-in');
         }

@@ -8,6 +8,7 @@ import Listing from './pages/Listing';
 import Category from './pages/Category';
 import PrivateRoute from './components/PrivateRoute';
 import SignUp from './pages/SignUp';
+import EditListing from './pages/EditListing';
 import Navbar from './components/Navbar';
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -38,9 +39,11 @@ function App() {
           <Route path="/sign-up" element={<SignUp />}></Route>
           <Route path="/forget-password" element={<ForgetPassword />}></Route>
           <Route path="/create-listing" element={<CreateListing />} />
+          {/* TODO: change all params names to variables  */}
+          <Route path="/edit-listing/:listingId" element={<EditListing />} />
           <Route
             path="/category/:categoryName/:listingId"
-            element={<Listing />}
+            element={<EditListing />}
           />
           {/* Contact LandLord baseed on uid  */}
           <Route path="/contact/:landLordId" element={<Contact />}></Route>

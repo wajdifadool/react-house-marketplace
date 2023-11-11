@@ -36,8 +36,8 @@ function Offers() {
         const q = query(
           listingRef,
           where('offer', '==', true),
-          orderBy('timestamp', 'desc'),
-          limit(10)
+          orderBy('timestamp', 'desc')
+          // limit(10)
         );
 
         // Execute Query

@@ -2,12 +2,25 @@ import React, { useEffect, useState } from 'react';
 import { getAuth, updateProfile } from 'firebase/auth';
 import { useNavigate, Link } from 'react-router-dom';
 
-import { updateDoc, doc } from 'firebase/firestore';
+import {
+  updateDoc,
+  doc,
+  collection,
+  getDoc,
+  getDocs,
+  where,
+  orderBy,
+  limit,
+  query,
+  deleteDoc,
+} from 'firebase/firestore';
 import { db } from '../firebase.config';
 import { toast } from 'react-toastify';
 
 import arrowRightIcon from '../assets/svg/keyboardArrowRightIcon.svg';
 import homeIcon from '../assets/svg/homeIcon.svg';
+import ListingItem from '../components/ListingItem';
+import { list } from 'firebase/storage';
 function Profile() {
   const auth = getAuth(); //
   // this will get Invoked once  the page Load
@@ -21,6 +34,8 @@ function Profile() {
     name: auth.currentUser.displayName,
     email: auth.currentUser.email,
   });
+
+  const [userListing, setUserListing] = useState([]); // updated in the useEffect
 
   const { name, email } = formData;
 
@@ -51,6 +66,54 @@ function Profile() {
   // the user data are saved in indexsDB browser dev  tools
   // no user
 
+  useEffect(() => {
+    // show the listing for the current user
+    // TODO: move to Local SERVICES  LAYER  (MVC)
+    const fetchUserListing = async () => {
+      // do the fetch
+      try {
+        // the Current User id from localIndexDB
+        const userId = auth.currentUser.uid;
+
+        // Refrence for the collection
+        const listingsRef = collection(db, 'listings');
+
+        // Build the query
+        // const q = query(
+        //   listingRef,
+        //   // it will select a all coucumnets where userRef = `Current UID`
+        //   where('userRef', '==', userId),
+        //   orderBy('timestamp', 'desc'),
+        //   limit(10)
+        // );
+
+        const q = query(
+          listingsRef,
+          where('userRef', '==', auth.currentUser.uid),
+          orderBy('timestamp', 'desc')
+        );
+
+        // Execute the Query
+        const querySnapShot = await getDocs(q);
+
+        console.log(querySnapShot);
+        const mListing = []; //
+        querySnapShot.forEach((doc) => {
+          return mListing.push({
+            id: doc.id,
+            data: doc.data(),
+          });
+        });
+        // update data state
+        setUserListing(mListing);
+        console.log('fetched UserListing', mListing);
+        //  updated state , the JSX element will be reacted to
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchUserListing();
+  }, [auth.currentUser.uid]);
   // to update the user data in firestore
   // clicked when clickin "done"
   const onSubmit = async () => {
@@ -83,6 +146,26 @@ function Profile() {
       ...prevState, // passing the prev state as an object and update to it
       [e.target.id]: e.target.value,
     }));
+  };
+
+  const onDelete = async (listingID) => {
+    // make acoonfirm
+    if (window.confirm('are you sure to delete')) {
+      await deleteDoc(doc(db, 'listings', listingID));
+
+      // ok now filter and update the ui
+      const updatedListings = userListing.filter(
+        (listing) => listing.id !== listingID
+      );
+
+      setUserListing(updatedListings);
+      toast.success('listing has been deleted!');
+    }
+  };
+
+  const onEdit = (listingId) => {
+    // this function just navigate to the edit page
+    navigate(`/edit-listing/${listingId}`);
   };
   return (
     <>
@@ -143,6 +226,23 @@ function Profile() {
             <p>Sell or rent Home</p>
             <img src={arrowRightIcon} alt="arrowRightIcon" />
           </Link>
+
+          {/* the Listings */}
+          <p className="pageHeader">My Listings :</p>
+
+          <ul className="categoryListings">
+            {userListing.map((item) => (
+              // <ListingItem listing={item} id={}/>
+              // <h3 key={listing.id}>{item.data.name}</h3>
+              <ListingItem
+                key={item.id}
+                listing={item.data}
+                id={item.id}
+                onDelete={() => onDelete(item.id)}
+                onEdit={() => onEdit(item.id)}
+              />
+            ))}
+          </ul>
         </main>
       </div>
     </>
