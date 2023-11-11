@@ -6,7 +6,7 @@ import {
   onAuthStateChanged,
 } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import Spinner from './Spinner';
+import Spinner from '../components/Spinner';
 import { toast } from 'react-toastify';
 import { v4 as uuidv4 } from 'uuid';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';

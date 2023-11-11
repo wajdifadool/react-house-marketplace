@@ -13,7 +13,7 @@ import Navbar from './components/Navbar';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import CreateListing from './components/CreateListing';
+import CreateListing from './pages/CreateListing';
 import Contact from './pages/Contact';
 
 // Nav Bar goes here
