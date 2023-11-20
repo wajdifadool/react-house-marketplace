@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# Brad Traversy - React Front To Back 2022 - 04 - House Marketplace
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Udemy - [Brad Traversy - React Front To Back 2022](https://www.udemy.com/course/react-front-to-back-2022/)
 
-## Available Scripts
+- Section 13: House Marketplace Project Start
+- Section 14: Firebase Authentication & Profile
+- Section 15: Get & Create Listings
+- Section 16: Single Listings, Map, Slider & Edit
 
-In the project directory, you can run:
+## Deployed
 
-### `npm start`
+- [On Netlify](https://react-house-marketplace-teal.vercel.app/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Used Tools:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Frontend:
+  - React.js
+- Backend:
+  - Firebase - authentication
+  - Firestore - database
+  - Netlify - serverless functions & hosting
+  - Positionstack - geocoding
 
-### `npm test`
+## Environment variables:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- App's firebase configuration: (these variables will be visible in the fronend project)
+  - REACT_APP_FIREBASE_CONFIG_API_KEY
+  - REACT_APP_FIREBASE_CONFIG_AUTH_DOMAIN
+  - REACT_APP_FIREBASE_CONFIG_PROJECT_ID
+  - REACT_APP_FIREBASE_CONFIG_STORAGE_BUCKET
+  - REACT_APP_FIREBASE_CONFIG_MESSAGING_SENDER_ID
+  - REACT_APP_FIREBASE_CONFIG_APP_ID
+- App's positionstack configuration: (these variables are hidden in a serverless backend function)
+  - POSITIONSTACK_API_KEY
+  - POSITIONSTACK_BASE_URL
 
-### `npm run build`
+## Resources:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Firebase Setup For House Marketplace:
+  - [on Gist](https://gist.github.com/bradtraversy/caab8ebd8ff4b6e947632887e0183761)
+- Firestore rules & Storage rules:
+  - [on Gist](https://gist.github.com/bradtraversy/6d7de7e877d169a6aa4e61140d25767f)
+- The instructor's solution:
+  - The source code of the instructor's solution is in [this Github repo](https://github.com/bradtraversy/house-marketplace)

@@ -6,9 +6,14 @@ import { doc, setDoc, getDoc, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebase.config';
 import { toast } from 'react-toastify';
 import GoogleIcon from '../assets/svg/googleIcon.svg';
+
 function OAuth() {
   const navigate = useNavigate();
   const location = useLocation();
+
+  const OnFacebookClick = () => {
+    console.log('Facebook btn clkc');
+  };
   const OnGoogleClick = async () => {
     try {
       const auth = getAuth();
@@ -40,16 +45,25 @@ function OAuth() {
     }
   };
   return (
+    // TODO: make it component ?
     <div className="socialLogin">
       {/* //Location passed on the page we are at  */}
+      {/* TODO: Move Up to a const  */}
       <p>Sign {location.pathname === '/sign-up' ? 'up' : 'in'} with </p>
-      <button className="socialIconDiv">
-        <img
+
+      <button onClick={OnGoogleClick} className="btn-credintals btn-google">
+        Sign in With google
+        {/*  <img
           className="socialIconImg"
           src={GoogleIcon}
           alt="google"
           onClick={OnGoogleClick}
-        />
+        /> */}
+        {/* TODO: add icons  */}
+      </button>
+
+      <button onClick={OnFacebookClick} className="btn-credintals btn-facebook">
+        Sign in With Facebook
       </button>
     </div>
   );
